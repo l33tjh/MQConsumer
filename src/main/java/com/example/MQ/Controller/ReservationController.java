@@ -1,4 +1,4 @@
-package Controller;
+package com.example.MQ.Controller;
 
 
 import com.example.MQ.Entity.Reservation;

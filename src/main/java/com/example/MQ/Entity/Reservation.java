@@ -1,5 +1,6 @@
 package com.example.MQ.Entity;
 
+import com.example.MQ.StringListConverter;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,9 +18,8 @@ public class Reservation {
     @Column(nullable = false)
     private String email;
 
-    @ElementCollection
-    @CollectionTable(name = "selected_seats", joinColumns = @JoinColumn(name = "reservation_id"))
-    @Column(name = "seat")
+    @Convert(converter = StringListConverter.class)
+    @Column(name = "seats", nullable = false)
     private List<String> selectedSeats;
 
     @Column(nullable = false)
